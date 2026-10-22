@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pharmacy - Asset Ledger Matrix</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/inventory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="global-sidebar-target"></div>
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="page-title"><h1>Inventory Ledger Engine</h1></div>
+                <div class="top-bar-right">
+                    <div class="clock-widget" id="live-clock-display"></div>
+                    <button class="btn btn-success" id="action-trigger-open-modal"><i class="fas fa-plus-circle"></i> Enlist New Therapeutic</button>
+                </div>
+            </header>
+            <main class="content-wrapper">
+                
+                <section class="filter-control-dock">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="filter-search-field" placeholder="Search across therapeutics index identifiers or chemical keys...">
+                    </div>
+                    <div class="selectors-row">
+                        <select id="filter-dropdown-category">
+                            <option value="ALL">All Categories</option>
+                            <option value="Antidiabetic">Antidiabetic</option>
+                            <option value="Antibiotic">Antibiotic</option>
+                            <option value="Antihypertensive">Antihypertensive</option>
+                            <option value="Cardiovascular">Cardiovascular</option>
+                            <option value="Respiratory">Respiratory</option>
+                        </select>
+                        <select id="filter-dropdown-sort">
+                            <option value="ID_ASC">Sort by Identifier (Asc)</option>
+                            <option value="QTY_DESC">Volume Concentration (Desc)</option>
+                            <option value="EXP_ASC">Closest Expiry Sequence</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="ledger-table-card">
+                    <div class="table-frame">
+                        <table class="inventory-data-grid">
+                            <thead>
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Medicine Label Name</th>
+                                    <th>Therapeutic Class</th>
+                                    <th>Manufacturer Node</th>
+                                    <th>In-Stock Qty</th>
+                                    <th>Expiration Threshold</th>
+                                    <th>Status Anchor</th>
+                                    <th style="text-align: center;">Operational Protocol Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventory-matrix-tbody">
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal-backdrop-shield" id="crud-modal-instance">
+        <div class="modal-dialog-surface">
+            <div class="modal-header-container">
+                <h3 id="modal-headline-intent">Register New Therapeutic Asset</h3>
+                <button class="close-dismiss-icon" id="action-trigger-close-modal">&times;</button>
+            </div>
+            <form id="inventory-crud-submission-form">
+                <input type="hidden" id="form-hidden-field-id">
+                <div class="form-row-split">
+                    <div class="input-control">
+                        <label>Asset Custom Code Identifier</label>
+                        <input type="text" id="form-input-code" required placeholder="e.g. MED006">
+                    </div>
+                    <div class="input-control">
+                        <label>Medicine Proprietary Label</label>
+                        <input type="text" id="form-input-name" required placeholder="Chemical or Trade Name">
+                    </div>
+                </div>
+                <div class="form-row-split">
+                    <div class="input-control">
+                        <label>Therapeutic Categorization</label>
+                        <input type="text" id="form-input-category" required placeholder="e.g. Antibiotic">
+                    </div>
+                    <div class="input-control">
+                        <label>Manufacturing Entity</label>
+                        <input type="text" id="form-input-manufacturer" required placeholder="Global Production Labs">
+                    </div>
+                </div>
+                <div class="form-row-split">
+                    <div class="input-control">
+                        <label>In-Stock Allocation Units</label>
+                        <input type="number" id="form-input-qty" required min="0" placeholder="100">
+                    </div>
+                    <div class="input-control">
+                        <label>Batch Expiration Standard Date</label>
+                        <input type="date" id="form-input-expiry" required>
+                    </div>
+                </div>
+                <div class="form-row-split">
+                    <div class="input-control">
+                        <label>Barcode Tracking Code String</label>
+                        <input type="text" id="form-input-barcode" required placeholder="Universal Barcode String">
+                    </div>
+                    <div class="input-control">
+                        <label>RFID Passive Tag Registration Signature</label>
+                        <input type="text" id="form-input-rfid" required placeholder="RFID Signature Identifier">
+                    </div>
+                </div>
+                <div class="modal-footer-actions">
+                    <button type="button" class="btn" style="background:#cbd5e1; color: var(--dark);" id="action-trigger-cancel-modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Commit Asset Record to Local Storage</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/inventory.js"></script>
+</body>
+</html>

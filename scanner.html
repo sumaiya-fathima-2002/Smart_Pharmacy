@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pharmacy - Hardware Telemetry Interface</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scanner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="global-sidebar-target"></div>
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="page-title"><h1>IoT Laser Barcode & Passive RFID Scanner Emulation</h1></div>
+                <div class="top-bar-right"><div class="clock-widget" id="live-clock-display"></div></div>
+            </header>
+            <main class="content-wrapper">
+                <div class="scanner-layout-grid">
+                    
+                    <div class="control-card-panel">
+                        <h3><i class="fas fa-satellite"></i> Hardware Trigger Station</h3>
+                        <p style="font-size:0.85rem; color: var(--text-muted); margin-bottom:1.5rem;">Simulate automatic tracking updates using sample codes from the database (e.g. <code>8901234567811</code> or <code>RFID-AMO-002</code>).</p>
+                        
+                        <form id="hardware-scanner-mock-form">
+                            <div class="input-control" style="margin-bottom:1.25rem;">
+                                <label>Scan Signal Processing Line Input</label>
+                                <input type="text" id="hardware-stream-input" required placeholder="Inject numeric barcode sequence or active RFID tracking handle string...">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fas fa-bolt"></i> Trigger Optical Scanning Pass</button>
+                        </form>
+                        
+                        <div class="shortcut-pill-box">
+                            <h5>Pre-Loaded Quick-Simulate Signals:</h5>
+                            <button class="pill-btn" onclick="injectQuickSignal('8901234567811')">Barcode: Metformin</button>
+                            <button class="pill-btn" onclick="injectQuickSignal('RFID-AMO-002')">RFID: Amoxicillin</button>
+                            <button class="pill-btn" onclick="injectQuickSignal('8901234567833')">Barcode: Lisinopril</button>
+                            <button class="pill-btn" onclick="injectQuickSignal('FAULT-SIGNAL-999')">Unknown Tag</button>
+                        </div>
+                    </div>
+
+                    <div class="display-card-panel">
+                        <div class="console-state-header">
+                            <h4>Hardware Screen Matrix Status Display</h4>
+                            <span class="status-indicator-light status-idle" id="console-status-pill">System Ready</span>
+                        </div>
+                        <div class="console-screen-body" id="console-interactive-screen">
+                            <div class="empty-prompt-state">
+                                <i class="fas fa-rss fa-3x" style="margin-bottom: 1rem; opacity: 0.5;"></i>
+                                <p>Awaiting incoming telemetry streams from physical tracking transceivers...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/scanner.js"></script>
+</body>
+</html>

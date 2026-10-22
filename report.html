@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pharmacy - Compliance Reports</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/report.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="global-sidebar-target"></div>
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="page-title"><h1>Compliance & Operational Report Center</h1></div>
+                <div class="top-bar-right"><div class="clock-widget" id="live-clock-display"></div></div>
+            </header>
+            <main class="content-wrapper">
+                
+                <section class="report-generator-dock-grid">
+                    <div class="report-action-panel-card">
+                        <div class="panel-icon-header"><i class="fas fa-boxes fa-2x"></i></div>
+                        <h3>Inventory Matrix Data Manifest</h3>
+                        <p>Compiles and extracts current local asset balances, status badges, tracking identifiers, and transaction logs.</p>
+                        <div class="panel-actions-wrapper">
+                            <button class="btn btn-primary" onclick="exportInventoryManifestToCSV()"><i class="fas fa-file-csv"></i> Download Manifest CSV</button>
+                            <button class="btn btn-success" onclick="executeSystemPrintSequence()"><i class="fas fa-print"></i> Print System Audit</button>
+                        </div>
+                    </div>
+
+                    <div class="report-action-panel-card">
+                        <div class="panel-icon-header" style="color: var(--secondary);"><i class="fas fa-history fa-2x"></i></div>
+                        <h3>Hardware Telemetry Scan Logs</h3>
+                        <p>Compiles active historical event records captured through external scan transceiver triggers during the system run loop.</p>
+                        <div class="panel-actions-wrapper">
+                            <button class="btn btn-primary" onclick="exportHardwareLogsToCSV()"><i class="fas fa-download"></i> Download History CSV</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="live-manifest-preview-card" id="printable-audit-area">
+                    <div class="preview-card-header">
+                        <h4>Real-Time Inventory System Manifest Preview</h4>
+                        <span class="system-watermark">UN SDG 3 System Compliance Token</span>
+                    </div>
+                    <div style="overflow-x:auto;">
+                        <table class="manifest-preview-data-grid">
+                            <thead>
+                                <tr>
+                                    <th>Asset ID</th>
+                                    <th>Proprietary Name</th>
+                                    <th>Therapeutic Class</th>
+                                    <th>Manufacturer Node</th>
+                                    <th>Current Volume</th>
+                                    <th>Expiration Metric</th>
+                                </tr>
+                            </thead>
+                            <tbody id="report-preview-manifest-tbody">
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/report.js"></script>
+</body>
+</html>

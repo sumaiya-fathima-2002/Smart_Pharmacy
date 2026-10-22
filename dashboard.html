@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pharmacy - Executive Dashboard Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <div id="global-sidebar-target"></div>
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="page-title"><h1>Operational Health Dashboard</h1></div>
+                <div class="top-bar-right">
+                    <div class="clock-widget" id="live-clock-display"></div>
+                    <div class="user-profile">
+                        <div class="user-avatar">RX</div>
+                        <span>Chief Pharmacist</span>
+                    </div>
+                </div>
+            </header>
+            <main class="content-wrapper">
+                <section class="metrics-summary-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: var(--primary-light);"><i class="fas fa-pills"></i></div>
+                        <div class="stat-info"><h3>Total Managed Medicines</h3><p id="metric-total">0</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--secondary);"><i class="fas fa-check-circle"></i></div>
+                        <div class="stat-info"><h3>Optimal Stock Profiles</h3><p id="metric-optimal">0</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="stat-info"><h3>Critical Depletions</h3><p id="metric-low">0</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(239, 68, 68, 0.1); color: var(--danger);"><i class="fas fa-calendar-times"></i></div>
+                        <div class="stat-info"><h3>Expired Batches</h3><p id="metric-expired">0</p></div>
+                    </div>
+                </section>
+
+                <section class="telemetry-twinmaker-banner">
+                    <div class="cloud-telemetry-header">
+                        <h3><i class="fas fa-network-wired"></i> Conceptual Spatial Infrastructure Analytics (AWS IoT TwinMaker Streams)</h3>
+                        <span class="badge badge-success">Telemetry Continuous</span>
+                    </div>
+                    <div class="telemetry-grid-cards">
+                        <div class="tel-node"><h5>DynamoDB Write Partition</h5><p>Active (Primary Range Key)</p></div>
+                        <div class="tel-node"><h5>Edge Hardware IO</h5><p>Buffer Clear (0 Dropped Frames)</p></div>
+                        <div class="tel-node"><h5>Thermal Environment Sensor</h5><p>4.2°C (Cold Chain Restrictive)</p></div>
+                    </div>
+                </section>
+
+                <section class="dashboard-chart-matrix">
+                    <div class="chart-container-wrapper">
+                        <h4>Therapeutic Category Densities</h4>
+                        <canvas id="chartCategoryPie"></canvas>
+                    </div>
+                    <div class="chart-container-wrapper">
+                        <h4>Stock Resource Aggregates</h4>
+                        <canvas id="chartStockBar"></canvas>
+                    </div>
+                </section>
+
+                <section class="recent-events-container">
+                    <h3>Recent Scan Events (IoT Emulation Log Engine)</h3>
+                    <div class="table-scroll-frame">
+                        <table class="data-table-view">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp Record</th>
+                                    <th>Signal Node Key</th>
+                                    <th>Target Catalog Ref</th>
+                                    <th>Identified Object Descriptor</th>
+                                    <th>System Validation Output</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-scans-tbody">
+                                <tr><td colspan="5" style="text-align: center; color: var(--text-muted);">No scan activities buffered during this system run loop.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

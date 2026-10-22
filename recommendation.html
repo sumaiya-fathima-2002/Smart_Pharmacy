@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pharmacy - Recommendation Node</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/recommendation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="global-sidebar-target"></div>
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="page-title"><h1>Clinical Diagnostic Recommendation Search Engine</h1></div>
+                <div class="top-bar-right"><div class="clock-widget" id="live-clock-display"></div></div>
+            </header>
+            <main class="content-wrapper">
+                
+                <section class="search-panel-container">
+                    <div class="panel-header-badge">
+                        <h3><i class="fas fa-brain"></i> Kaggle Dataset Query Mapping Engine</h3>
+                        <span class="badge badge-success" style="background:rgba(59,130,246,0.15); color:var(--primary-light);">Dataset Sourced offline</span>
+                    </div>
+                    <form id="recommendation-inference-query-form">
+                        <div class="form-row-split">
+                            <div class="input-control">
+                                <label>Target Disease Classification</label>
+                                <input type="text" id="query-input-disease" placeholder="e.g. Diabetes, Asthma, Hypertension...">
+                            </div>
+                            <div class="input-control">
+                                <label>Presenting Symptomatic Vector Terms</label>
+                                <input type="text" id="query-input-symptom" placeholder="e.g. fatigue, wheezing, headache...">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top:0.5rem;"><i class="fas fa-microchip"></i> Execute Pattern Search Optimization</button>
+                    </form>
+                </section>
+
+                <section class="inference-results-wrapper" id="recommendation-render-output-viewport">
+                    <div class="neutral-empty-slate">
+                        <i class="fas fa-stethoscope fa-4x"></i>
+                        <h4>Awaiting Query Parameter Context Signals</h4>
+                        <p>Provide verified primary disease classification terminology mappings or specific symptom lists to return matching clinical profiles from the database.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/recommendation.js"></script>
+</body>
+</html>
