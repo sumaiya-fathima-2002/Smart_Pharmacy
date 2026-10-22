@@ -1,0 +1,86 @@
+.search-panel-container {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.panel-header-badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.inference-results-wrapper {
+  min-height: 200px;
+}
+
+.neutral-empty-slate {
+  text-align: center;
+  background: var(--surface);
+  padding: 4rem 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.neutral-empty-slate i { color: var(--primary-light); opacity: 0.4; margin-bottom: 1.5rem; }
+.neutral-empty-slate h4 { color: var(--dark); font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+.resolved-inference-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.result-hero-banner {
+  background: linear-gradient(135deg, var(--primary), #1d4ed8);
+  color: white;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-hero-banner h2 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+
+.confidence-score-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.confidence-score-badge span { display: block; font-size: 0.75rem; text-transform: uppercase; opacity: 0.8; }
+.confidence-score-badge strong { font-size: 1.75rem; font-weight: 800; }
+
+.result-details-grid {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.detail-section-block h4 {
+  font-size: 0.9rem; color: var(--primary-light); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.5px;
+}
+
+.detail-section-block p { line-height: 1.6; color: var(--text); margin-bottom: 1.5rem; }
+
+.alert-precaution-box {
+  background: rgba(239, 68, 68, 0.08);
+  border-left: 4px solid var(--danger);
+  padding: 1rem;
+  border-radius: 6px;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}

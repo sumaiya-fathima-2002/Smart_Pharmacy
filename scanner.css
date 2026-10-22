@@ -1,0 +1,79 @@
+.scanner-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.control-card-panel, .display-card-panel {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.control-card-panel h3 { margin-bottom: 0.5rem; color: var(--dark); }
+
+.shortcut-pill-box {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.shortcut-pill-box h5 {
+  font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.75rem;
+}
+
+.pill-btn {
+  background: var(--light);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+}
+
+.pill-btn:hover { background: var(--primary-light); color: white; border-color: var(--primary-light); }
+
+.console-state-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.status-indicator-light {
+  font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 20px; text-transform: uppercase;
+}
+
+.status-idle { background: #e2e8f0; color: #475569; }
+.status-working { background: rgba(245, 158, 11, 0.2); color: #d97706; animation: blink 1s infinite; }
+.status-success { background: rgba(16, 185, 129, 0.2); color: #059669; }
+.status-fail { background: rgba(239, 68, 68, 0.2); color: #dc2626; }
+
+@keyframes blink { 50% { opacity: 0.5; } }
+
+.console-screen-body {
+  background: #0f172a;
+  color: #38bdf8;
+  font-family: monospace;
+  padding: 1.5rem;
+  border-radius: 8px;
+  min-height: 280px;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.empty-prompt-state { text-align: center; color: #64748b; }
+
+.telemetry-readout-packet h2 { color: #f8fafc; font-size: 1.25rem; margin-bottom: 0.75rem; border-bottom: 1px solid #1e293b; padding-bottom: 0.25rem; }
+.telemetry-readout-packet p { margin-bottom: 0.4rem; font-size: 0.9rem; }
+.telemetry-readout-packet strong { color: #10b981; }
